@@ -428,7 +428,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: PlayerCam
@@ -511,21 +510,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1980993390}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72d3b07ada3db4a43b1226a6a59daa4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sensX: 400
-  sensY: 400
-  orientation: {fileID: 1287749036}
 --- !u!45 &963194230
 Skybox:
   m_ObjectHideFlags: 0
@@ -820,6 +804,8 @@ GameObject:
   - component: {fileID: 1813709724}
   - component: {fileID: 1813709723}
   - component: {fileID: 1813709725}
+  - component: {fileID: 1813709726}
+  - component: {fileID: 1813709727}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -886,6 +872,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 7
   sprintSpeed: 12
+  dashSpeed: 20
+  dashSpeedChangeFactor: 80
+  maxYSpeed: 15
   groundDrag: 5
   jumpForce: 12
   jumpCooldown: 0.25
@@ -902,6 +891,58 @@ MonoBehaviour:
   maxSlopeAngle: 40
   orientation: {fileID: 1287749036}
   state: 0
+  dashing: 0
+--- !u!114 &1813709726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813709722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbca43fb2a50e7429ed682aff58c9b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 1287749036}
+  playerCam: {fileID: 963194228}
+  dashForce: 20
+  dashUpwardForce: 0
+  maxDashYSpeed: 15
+  dashDuration: 0.25
+  cam: {fileID: 1813709727}
+  dashFov: 95
+  useCameraForward: 1
+  allowAllDirections: 1
+  disableGravity: 1
+  resetVel: 1
+  dashCd: 1.5
+  dashKey: 101
+--- !u!114 &1813709727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813709722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d3b07ada3db4a43b1226a6a59daa4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensX: 10
+  sensY: 10
+  multiplier: 0.1
+  orientation: {fileID: 1287749036}
+  camHolder: {fileID: 1980993390}
+  useFluentFov: 0
+  pm: {fileID: 1813709725}
+  rb: {fileID: 1813709723}
+  cam: {fileID: 963194227}
+  minMovementSpeed: 7
+  maxMovementSpeed: 20
+  minFov: 85
+  maxFov: 95
 --- !u!1 &1980993388
 GameObject:
   m_ObjectHideFlags: 0
