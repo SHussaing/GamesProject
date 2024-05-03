@@ -5,6 +5,7 @@ using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Animator animator;
     [Header("Movement")]
     private float moveSpeed;
     public float walkSpeed;
@@ -91,6 +92,11 @@ public class PlayerMovement : MonoBehaviour
         else
             rb.drag = 0;
 
+        if (state == MovementState.sprinting)
+        {
+            animator.Play("Run");
+        }
+        
     }
 
     private void FixedUpdate()
@@ -111,6 +117,9 @@ public class PlayerMovement : MonoBehaviour
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
+
+            // play jump animation
+            animator.Play("Jump");
         }
 
         // start crouch
