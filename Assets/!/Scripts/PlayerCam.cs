@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
+/*using DG.Tweening;*/
 
 public class PlayerCam : MonoBehaviour
 {
@@ -14,6 +14,8 @@ public class PlayerCam : MonoBehaviour
 
     float xRotation;
     float yRotation;
+
+    public float lookDownAngle;
 
     [Header("Fov")]
     public bool useFluentFov;
@@ -40,7 +42,7 @@ public class PlayerCam : MonoBehaviour
         yRotation += mouseX * multiplier;
 
         xRotation -= mouseY * multiplier;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        xRotation = Mathf.Clamp(xRotation, -90, lookDownAngle);
 
         // rotate player on the y axis
         rb.rotation = Quaternion.Euler(0, yRotation, 0);
@@ -70,7 +72,7 @@ public class PlayerCam : MonoBehaviour
         cam.fieldOfView = lerpedFov;
     }
 
-    public void DoFov(float endValue)
+/*    public void DoFov(float endValue)
     {
         GetComponent<Camera>().DOFieldOfView(endValue, 0.25f);
     }
@@ -78,6 +80,6 @@ public class PlayerCam : MonoBehaviour
     public void DoTilt(float zTilt)
     {
         transform.DOLocalRotate(new Vector3(0, 0, zTilt), 0.25f);
-    }
+    }*/
 
 }

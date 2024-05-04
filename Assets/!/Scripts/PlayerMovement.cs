@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -62,7 +63,9 @@ public class PlayerMovement : MonoBehaviour
         sprinting,
         crouching,
         dashing,
-        air
+        air,
+        idle,
+        jumping
     }
 
     public bool dashing;
@@ -77,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
         startYScale = transform.localScale.y;
     }
 
+    private float jumpTimer = 0;
     private void Update()
     {
         // ground check
@@ -92,11 +96,29 @@ public class PlayerMovement : MonoBehaviour
         else
             rb.drag = 0;
 
+        Vector3 movmentDirection = new Vector3(horizontalInput, 0, verticalInput).normalized;
+        if (movmentDirection == Vector3.zero)
+        {
+            state = MovementState.idle;
+        }
+
+
         if (state == MovementState.sprinting)
         {
-            animator.Play("Run");
+            animator.SetInteger("Speed", 2);
         }
-        
+        else if (state == MovementState.walking)
+        {
+            animator.SetInteger("Speed", 1);
+        }
+        else
+        {
+            animator.SetInteger("Speed", 0);
+        }
+
+        if (jumpTimer > 0.5) jumpTimer -= Time.deltaTime;
+        else if (animator.GetBool("Jumping") == true) animator.SetBool("Jumping", false);
+
     }
 
     private void FixedUpdate()
@@ -113,13 +135,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(jumpKey) && readyToJump && grounded)
         {
             readyToJump = false;
-
-            Jump();
-
-            Invoke(nameof(ResetJump), jumpCooldown);
-
             // play jump animation
-            animator.Play("Jump");
+            /*animator.Play("Jump");*/
+            jumpTimer = 1;
+            animator.SetBool("Jumping", true);
+            Jump();
+            
+            Invoke(nameof(ResetJump), jumpCooldown);
         }
 
         // start crouch

@@ -56,7 +56,7 @@ public class PlayerDash : MonoBehaviour
         pm.dashing = true;
         pm.maxYSpeed = maxDashYSpeed;
 
-        cam.DoFov(dashFov);
+        /*cam.DoFov(dashFov);*/
 
         Transform forwardT;
 
@@ -92,7 +92,7 @@ public class PlayerDash : MonoBehaviour
         pm.dashing = false;
         pm.maxYSpeed = 0;
 
-        cam.DoFov(85f);
+        /*cam.DoFov(85f);*/
 
         if (disableGravity)
             rb.useGravity = true;
