@@ -28,10 +28,13 @@ public class PlayerDash : MonoBehaviour
 
     [Header("Cooldown")]
     public float dashCd;
-    private float dashCdTimer;
+    public float dashCdTimer;
 
     [Header("Input")]
     public KeyCode dashKey = KeyCode.E;
+
+    [Header("Sound")]
+    public AudioSource soundEffectSource;
 
     private void Start()
     {
@@ -50,8 +53,12 @@ public class PlayerDash : MonoBehaviour
 
     private void Dash()
     {
-        if (dashCdTimer > 0) return;
+        if (dashCdTimer > 0) {
+            return;
+        }
         else dashCdTimer = dashCd;
+        //play the sound of the dash
+        soundEffectSource.Play();
 
         pm.dashing = true;
         pm.maxYSpeed = maxDashYSpeed;
