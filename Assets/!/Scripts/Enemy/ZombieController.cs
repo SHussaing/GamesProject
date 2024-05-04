@@ -5,8 +5,10 @@ using UnityEngine.AI;
 
 public class ZombieController : MonoBehaviour
 {
+    private float timeOfLastAttack = 0;
+    private bool reachedPlayer = false;
     private NavMeshAgent agent = null;
-    private Animator anim = null; 
+    private Animator anim = null;
     private ZombieStats stats = null;
     [SerializeField] private Transform player;
     public float stoppingDistance = 2f;
@@ -32,18 +34,37 @@ public class ZombieController : MonoBehaviour
 
     private void MoveToPlayer()
     {
-        
+
         agent.SetDestination(player.position);
         RotateTowardsPlayer();
-        anim.SetFloat("Speed", 1f, 0.3f, Time.deltaTime);
+        anim.SetFloat("speed", 1f, 0.3f, Time.deltaTime);
 
         float distanceToTarget = Vector3.Distance(transform.position, player.position);
         if (distanceToTarget <= stoppingDistance)
         {
             anim.SetFloat("speed", 0f);
             //Attack
-            CharacterStats playerStats = player.GetComponent<CharacterStats>(); 
-            AttackPlayer(playerStats);  
+            if (!reachedPlayer)
+            {
+                reachedPlayer = true;
+                timeOfLastAttack = Time.time - 1.3f; // Decrease the delay by 0.5 seconds
+            }
+
+
+            if (Time.time >= timeOfLastAttack + stats.attackspeed)
+            {
+                timeOfLastAttack = Time.time;
+                CharacterStats playerStats = player.GetComponent<CharacterStats>();
+                AttackPlayer(playerStats);
+            }
+
+        }
+        else
+        {
+            if (reachedPlayer)
+            {
+                reachedPlayer = false;
+            }
         }
     }
 
@@ -62,7 +83,7 @@ public class ZombieController : MonoBehaviour
 
     public void AttackPlayer(CharacterStats statsToDamage)
     {
-        anim.SetTrigger("attack");  
-       stats.DealDamage(statsToDamage);
-    }   
+        anim.SetTrigger("attack");
+        stats.DealDamage(statsToDamage);
+    }
 }
