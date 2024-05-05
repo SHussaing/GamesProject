@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerDash : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerDash : MonoBehaviour
     public Transform playerCam;
     private Rigidbody rb;
     private PlayerMovement pm;
+
+    public Slider coolDownSlider;
 
     [Header("Dashing")]
     public float dashForce;
@@ -49,7 +52,10 @@ public class PlayerDash : MonoBehaviour
 
         if (dashCdTimer > 0)
             dashCdTimer -= Time.deltaTime;
+
+        coolDownSlider.value = Mathf.Clamp01(1 - dashCdTimer / dashCd);
     }
+
 
     private void Dash()
     {
@@ -59,7 +65,8 @@ public class PlayerDash : MonoBehaviour
         else dashCdTimer = dashCd;
         //play the sound of the dash
         soundEffectSource.Play();
-
+        //reset the cooldown slider
+        coolDownSlider.value = 0;
         pm.dashing = true;
         pm.maxYSpeed = maxDashYSpeed;
 
