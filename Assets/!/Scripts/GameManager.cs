@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     private PlayerStats playerStats;
     private PlayerMovement playerMovement;
     private PlayerCam PlayerCam;
-    private GameObject PNLDeath;
+    [SerializeField] GameObject PNLDeath;
 
     public Vector3 spawn;
 
@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
-        PNLDeath = GameObject.Find("PNLDeath");
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         PlayerCam = GameObject.Find("Player").GetComponent<PlayerCam>();
         PNLDeath.SetActive(false);

@@ -10,7 +10,7 @@ public class ZombieController : MonoBehaviour
     private NavMeshAgent agent = null;
     private Animator anim = null;
     private ZombieStats stats = null;
-    [SerializeField] private Transform player;
+    [SerializeField] public Transform player;
     public float stoppingDistance = 2f;
 
     // Start is called before the first frame update

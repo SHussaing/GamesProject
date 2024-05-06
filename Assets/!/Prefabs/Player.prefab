@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 4551895665509439401}
   - component: {fileID: 5383046406768863671}
   - component: {fileID: 1526792871353053630}
+  - component: {fileID: 2666197815191657854}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -162,6 +163,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   maxSlopeAngle: 40
   orientation: {fileID: 1113617997763305672}
+  rb: {fileID: 0}
   state: 5
   dashing: 0
 --- !u!114 &8910619000615162205
@@ -178,17 +180,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {fileID: 1113617997763305672}
   playerCam: {fileID: 0}
+  coolDownSlider: {fileID: 0}
   dashForce: 20
   dashUpwardForce: 0
   maxDashYSpeed: 15
   dashDuration: 0.25
   cam: {fileID: 4551895665509439401}
-  dashFov: 95
+  dashFov: 90
   useCameraForward: 1
   allowAllDirections: 1
   disableGravity: 1
   resetVel: 1
-  dashCd: 1.5
+  dashCd: 1
   dashCdTimer: 0
   dashKey: 101
   soundEffectSource: {fileID: 0}
@@ -230,9 +233,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f59af2643e58c54dae5cabc925bda05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1000
-  maxHealth: 1000
+  health: 100
+  maxHealth: 100
   isDead: 0
+  animator: {fileID: 9203343056835357245}
   hud: {fileID: 1526792871353053630}
 --- !u!114 &1526792871353053630
 MonoBehaviour:
@@ -247,6 +251,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
+--- !u!114 &2666197815191657854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5030735951403074411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b36fa09f5d403e4b828d35c3a71cfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  attackPoint: {fileID: 0}
+  objectToThrow: {fileID: 5082203939446302614, guid: dde0c2fb2ca7d754b8ebcbf492ba15d0, type: 3}
+  totalThrows: 100
+  throwCooldown: 0
+  throwKey: 323
+  throwForce: 70
+  throwUpwardForce: 0
 --- !u!1001 &9203343056825900893
 PrefabInstance:
   m_ObjectHideFlags: 0
