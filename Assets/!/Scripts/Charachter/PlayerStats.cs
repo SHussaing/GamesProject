@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PlayerStats : CharacterStats
 {
     public Animator animator;
     public PlayerHUD hud;
+    public int Coins = 0;
+    private Text CoinsText;
 
     private void Start()
     {
+        CoinsText = GameObject.Find("Coins").GetComponent<Text>();
         CheckHealth();
     }
 
@@ -23,6 +28,14 @@ public class PlayerStats : CharacterStats
         base.Die();
         animator.SetTrigger("Die");
     }
+
+    public void AddCoins(int amount)
+    {
+        Coins += amount;
+        CoinsText.text = Coins.ToString();
+       // hud.UpdateCoinsText(Coins);
+    }
+
 
 
 }

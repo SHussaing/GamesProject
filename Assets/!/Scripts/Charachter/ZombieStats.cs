@@ -12,8 +12,9 @@ public class ZombieStats : CharacterStats
     private Rigidbody rb = null;
     private NavMeshAgent agent = null;
     private ZombieController controller = null;
-
-
+    private CapsuleCollider capsuleCollider = null;
+    public int CoinToDrop ;
+    [SerializeField] private PlayerStats player;
     /*[SerializeField] private bool canAttack;*/
 
 
@@ -33,6 +34,10 @@ public class ZombieStats : CharacterStats
     
     public override void Die()
     {
+
+        player.AddCoins(CoinToDrop);
+        //disable the collider
+        capsuleCollider.enabled = false;
         anim.SetTrigger("die");
         //destroy the object after 2 seconds
         base.Die();
@@ -51,6 +56,8 @@ public class ZombieStats : CharacterStats
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
         controller = GetComponent<ZombieController>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
+        player = GameObject.Find("Player").GetComponent<PlayerStats>();
     }
 
     /*    public override void InitVariables()
