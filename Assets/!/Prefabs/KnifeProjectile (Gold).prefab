@@ -149,3 +149,10 @@ MonoBehaviour:
   damage: 50
   destroyOnHit: 0
   timeToDestroy: 100
+  hitEffect: {fileID: 0}
+  muzzleEffect: {fileID: 0}
+  isExplosive: 0
+  explosionRadius: 100
+  explosionForce: 10
+  explosionDamage: 100
+  explosionEffect: {fileID: 0}

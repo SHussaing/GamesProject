@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [Header("Settings")]
+    [Header("Stats")]
     public int damage;
     public bool destroyOnHit;
     public float timeToDestroy;
+
+    [Header("Effect")]
+    public GameObject hitEffect;
+    public GameObject muzzleEffect;
+
+    [Header("Explosive Projectile")]
+    public bool isExplosive;
+    public float explosionRadius;
+    public float explosionForce;
+    public int explosionDamage;
+    public GameObject explosionEffect;
 
     private Rigidbody rb;
 
@@ -16,6 +27,9 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        if (muzzleEffect != null)
+            Instantiate(muzzleEffect, transform.position, Quaternion.identity);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -31,6 +45,36 @@ public class Projectile : MonoBehaviour
             ZombieStats stats = collision.gameObject.GetComponent<ZombieStats>();
 
             stats.TakeDamage(damage);
+
+            if (isExplosive)
+            {
+                Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+
+                foreach (Collider nearbyObject in colliders)
+                {
+                    Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+
+                    if (rb != null)
+                    {
+                        rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+                    }
+
+                    if (nearbyObject.CompareTag("Enemy"))
+                    {
+                        ZombieStats enemyStats = nearbyObject.GetComponent<ZombieStats>();
+
+                        enemyStats.TakeDamage(explosionDamage);
+                    }
+                }
+
+                if (explosionEffect != null)
+                    Instantiate(explosionEffect, transform.position, Quaternion.identity);
+            }
+            else
+            {
+                if (hitEffect != null)
+                    Instantiate(hitEffect, transform.position, Quaternion.identity);
+            }
 
             if (destroyOnHit)
                 Destroy(gameObject);
