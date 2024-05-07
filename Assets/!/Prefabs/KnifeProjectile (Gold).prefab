@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7bdf90eff0019324388748724d6d6136, type: 2}
+  - {fileID: 2100000, guid: 33c3eb3bec084d043ab091f730d43976, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -148,11 +148,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 50
   destroyOnHit: 0
-  timeToDestroy: 100
-  hitEffect: {fileID: 0}
+  timeToDestroy: 1
+  hitEffect: {fileID: 100004, guid: cdd71635203c8ed47a18dcefce87463e, type: 3}
   muzzleEffect: {fileID: 0}
-  isExplosive: 1
-  explosionRadius: 10
-  explosionForce: 10
-  explosionDamage: 100
+  isExplosive: 0
+  explosionRadius: 0
+  explosionForce: 0
+  explosionDamage: 0
   explosionEffect: {fileID: 0}

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [Header("Sound")]
+    public AudioSource explosionSound;
+
     [Header("Stats")]
     public int damage;
     public bool destroyOnHit;
@@ -27,16 +30,17 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        //instansiate explosion sound from the game object explosion sound in the game scene hierarchy
+        explosionSound = GameObject.Find("explosionSound").GetComponent<AudioSource>();
 
         if (muzzleEffect != null)
             Instantiate(muzzleEffect, transform.position, Quaternion.identity);
+        
     }
 
     private void Update()
     {
-        //destroy the object after 1 second
-        Destroy(gameObject, timeToDestroy);
-
+        Destroy(gameObject, 10f);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -53,9 +57,14 @@ public class Projectile : MonoBehaviour
 
             stats.TakeDamage(damage);
 
-            if (destroyOnHit)
-                Destroy(gameObject);
         }
+
+        if (!destroyOnHit)
+        {
+            //destroy the object after time
+            Destroy(gameObject, timeToDestroy);
+        }
+
 
         if (isExplosive)
         {
@@ -80,6 +89,12 @@ public class Projectile : MonoBehaviour
 
             if (explosionEffect != null)
                 Instantiate(explosionEffect, transform.position, Quaternion.identity);
+
+            if (explosionSound != null)
+            {
+               explosionSound.Play();
+            }
+
         }
         else
         {
@@ -92,6 +107,9 @@ public class Projectile : MonoBehaviour
 
         // make sure projectile moves with target
         transform.SetParent(collision.transform);
+
+        if (destroyOnHit)
+            Destroy(gameObject);
     }
 
 
