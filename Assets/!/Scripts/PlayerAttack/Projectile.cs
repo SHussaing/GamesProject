@@ -32,6 +32,13 @@ public class Projectile : MonoBehaviour
             Instantiate(muzzleEffect, transform.position, Quaternion.identity);
     }
 
+    private void Update()
+    {
+        //destroy the object after 1 second
+        Destroy(gameObject, timeToDestroy);
+
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (hitTarget)
@@ -46,38 +53,38 @@ public class Projectile : MonoBehaviour
 
             stats.TakeDamage(damage);
 
-            if (isExplosive)
-            {
-                Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
-
-                foreach (Collider nearbyObject in colliders)
-                {
-                    Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
-
-                    if (rb != null)
-                    {
-                        rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
-                    }
-
-                    if (nearbyObject.CompareTag("Enemy"))
-                    {
-                        ZombieStats enemyStats = nearbyObject.GetComponent<ZombieStats>();
-
-                        enemyStats.TakeDamage(explosionDamage);
-                    }
-                }
-
-                if (explosionEffect != null)
-                    Instantiate(explosionEffect, transform.position, Quaternion.identity);
-            }
-            else
-            {
-                if (hitEffect != null)
-                    Instantiate(hitEffect, transform.position, Quaternion.identity);
-            }
-
             if (destroyOnHit)
                 Destroy(gameObject);
+        }
+
+        if (isExplosive)
+        {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+
+            foreach (Collider nearbyObject in colliders)
+            {
+                Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+
+                if (rb != null)
+                {
+                    rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+                }
+
+                if (nearbyObject.CompareTag("Enemy"))
+                {
+                    ZombieStats enemyStats = nearbyObject.GetComponent<ZombieStats>();
+
+                    enemyStats.TakeDamage(explosionDamage);
+                }
+            }
+
+            if (explosionEffect != null)
+                Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            if (hitEffect != null)
+                Instantiate(hitEffect, transform.position, Quaternion.identity);
         }
 
         // make sure projectile sticks to surface
@@ -85,8 +92,7 @@ public class Projectile : MonoBehaviour
 
         // make sure projectile moves with target
         transform.SetParent(collision.transform);
-
-        //destroy the object after 1 second
-        Destroy(gameObject, timeToDestroy);
     }
+
+
 }
