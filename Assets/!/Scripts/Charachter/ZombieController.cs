@@ -13,6 +13,13 @@ public class ZombieController : MonoBehaviour
     [SerializeField] public Transform player;
     public float stoppingDistance = 2f;
 
+    [Header("Audio")]
+    public AudioSource normalSound;
+    public float minTime;
+    public float maxTime;
+    public AudioSource attackSound;
+    private float timer;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -23,6 +30,26 @@ public class ZombieController : MonoBehaviour
     void Update()
     {
         MoveToPlayer();
+
+        // Decrement the timer with the time passed since the last frame
+        timer -= Time.deltaTime;
+
+        // Check if the timer has reached zero or less
+        if (timer <= 0f)
+        {
+            //play normal sound depending on the distance to the player
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+            // Calculate volume based on distance
+            float volume = Mathf.Clamp01(1f - distanceToPlayer / 12f);
+
+            // Play sound with adjusted volume
+            normalSound.volume = volume;
+            AudioSource.PlayClipAtPoint(normalSound.clip, transform.position);
+
+            // Reset the timer with a new random value between minTime and maxTime
+            timer = Random.Range(minTime, maxTime);
+        }
     }
 
     private void GetReferences()
@@ -31,6 +58,7 @@ public class ZombieController : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         stats = GetComponent<ZombieStats>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
     }
 
     private void MoveToPlayer()
@@ -89,6 +117,10 @@ public class ZombieController : MonoBehaviour
     public void AttackPlayer(CharacterStats statsToDamage)
     {
         anim.SetTrigger("attack");
+        if (attackSound != null)
+        {
+            attackSound.Play();
+        }
         stats.DealDamage(statsToDamage);
     }
 }
