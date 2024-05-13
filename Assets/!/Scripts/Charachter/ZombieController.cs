@@ -15,8 +15,6 @@ public class ZombieController : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource normalSound;
-    public float minTime;
-    public float maxTime;
     public AudioSource attackSound;
     private float timer;
 
@@ -41,14 +39,16 @@ public class ZombieController : MonoBehaviour
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
             // Calculate volume based on distance
-            float volume = Mathf.Clamp01(1f - distanceToPlayer / 12f);
+            float volume = Mathf.Clamp01(1f - distanceToPlayer);
 
-            // Play sound with adjusted volume
-            normalSound.volume = volume;
-            AudioSource.PlayClipAtPoint(normalSound.clip, transform.position);
-
+            if(normalSound != null)
+            {
+                // Play sound with adjusted volume
+                normalSound.volume = volume;
+                AudioSource.PlayClipAtPoint(normalSound.clip, transform.position);
+            }
             // Reset the timer with a new random value between minTime and maxTime
-            timer = Random.Range(minTime, maxTime);
+            timer = Random.Range(2f, 8f);
         }
     }
 
@@ -59,6 +59,25 @@ public class ZombieController : MonoBehaviour
         stats = GetComponent<ZombieStats>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
+        if(gameObject.name.StartsWith("Enemy_ZombieBasic"))
+        {
+            normalSound = GameObject.Find("zombieBasicSound").GetComponent<AudioSource>();
+            attackSound = GameObject.Find("zombieBasicAttackSound").GetComponent<AudioSource>();
+        } else if(gameObject.name.StartsWith("Enemy_ZombieArm"))
+        {
+            normalSound = GameObject.Find("zombieArmSound").GetComponent<AudioSource>();
+            attackSound = GameObject.Find("zombieArmAttackSound").GetComponent<AudioSource>();
+        }
+        else if(gameObject.name.StartsWith("Enemy_ZombieRibcage"))
+        {
+            normalSound = GameObject.Find("zombieRibcageSound").GetComponent<AudioSource>();
+            attackSound = GameObject.Find("zombieRibcageAttackSound").GetComponent<AudioSource>();
+        }
+        else if(gameObject.name.StartsWith("Enemy_ZombieChubby"))
+        {
+            normalSound = GameObject.Find("zombieChubbySound").GetComponent<AudioSource>();
+            attackSound = GameObject.Find("zombieChubbyAttackSound").GetComponent<AudioSource>();
+        }
     }
 
     private void MoveToPlayer()
