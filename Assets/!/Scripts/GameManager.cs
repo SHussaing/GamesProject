@@ -39,6 +39,10 @@ public class GameManager : MonoBehaviour
             playerMovement.rb.position = spawn;
             playerMovement.rb.velocity = Vector3.zero;
         }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            UpgradeMenu();
+        }
     }
 
 
@@ -50,5 +54,10 @@ public class GameManager : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene(0);  
+    }
+
+    public void UpgradeMenu()
+    {
+        SceneManager.LoadScene("UpgradeMenu");
     }
 }
