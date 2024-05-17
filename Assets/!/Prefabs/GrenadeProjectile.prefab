@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionSound: {fileID: 0}
-  damage: 320
+  damage: 50
   destroyOnHit: 1
   timeToDestroy: 100
   hitEffect: {fileID: 0}
@@ -156,5 +156,5 @@ MonoBehaviour:
   isExplosive: 1
   explosionRadius: 4
   explosionForce: 10
-  explosionDamage: 100
+  explosionDamage: 120
   explosionEffect: {fileID: 100002, guid: 6ecf76dc4f268d340b2666896a954bcc, type: 3}

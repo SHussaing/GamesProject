@@ -24,8 +24,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        managePlayer();
+        CheckZombies();
+    }
+
+    // Manage player
+    private void managePlayer()
+    {
         //if player is dead
-        if(playerStats.health <= 0)
+        if (playerStats.health <= 0)
         {
             PNLDeath.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
@@ -33,18 +40,26 @@ public class GameManager : MonoBehaviour
             PlayerCam.enabled = false;
         }
         //if player fell down
-        if(playerMovement.rb.position.y <= -100)
+        if (playerMovement.rb.position.y <= -100)
         {
-            playerStats.TakeDamage(playerStats.maxHealth/2);
+            playerStats.TakeDamage(playerStats.maxHealth / 2);
             playerMovement.rb.position = spawn;
             playerMovement.rb.velocity = Vector3.zero;
         }
-        if (Input.GetKeyDown(KeyCode.P))
+    }
+    // determine if all zombies are dead
+    public void CheckZombies()
+    {
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
-            UpgradeMenu();
+            //go to next level after 10 seconds
+            Invoke("NextLevel", 10);
         }
     }
-
+    private void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 
     public void RestartGame()
     {

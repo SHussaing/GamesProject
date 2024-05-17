@@ -193,7 +193,7 @@ public class UpgradeManager : MonoBehaviour
     {
         if (checkCoins(grenadeDamagePrice))
         {
-            Attacks[1].objectToThrow.gameObject.GetComponent<Projectile>().damage += 30;
+            Attacks[1].objectToThrow.gameObject.GetComponent<Projectile>().explosionDamage += 30;
         }
     }
 

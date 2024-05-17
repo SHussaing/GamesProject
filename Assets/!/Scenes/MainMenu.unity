@@ -1540,7 +1540,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Skylight Frontier
+  m_text: Zombot
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5265bf831683bdb4ab825c3fbb91a988, type: 2}
   m_sharedMaterial: {fileID: 5892155985178983840, guid: 5265bf831683bdb4ab825c3fbb91a988, type: 2}

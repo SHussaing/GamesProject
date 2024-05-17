@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 9203343056835357245}
-  walkSpeed: 7
-  sprintSpeed: 12
+  walkSpeed: 5
+  sprintSpeed: 8
   dashSpeed: 20
   dashSpeedChangeFactor: 80
   maxYSpeed: 15
@@ -183,7 +183,7 @@ MonoBehaviour:
   playerCam: {fileID: 0}
   coolDownSlider: {fileID: 0}
   dashForce: 20
-  dashUpwardForce: 0
+  dashUpwardForce: 2
   maxDashYSpeed: 15
   dashDuration: 0.25
   cam: {fileID: 4551895665509439401}
@@ -192,7 +192,7 @@ MonoBehaviour:
   allowAllDirections: 1
   disableGravity: 1
   resetVel: 1
-  dashCd: 1
+  dashCd: 12
   dashCdTimer: 0
   dashKey: 101
   soundEffectSource: {fileID: 0}
@@ -239,7 +239,7 @@ MonoBehaviour:
   isDead: 0
   animator: {fileID: 9203343056835357245}
   hud: {fileID: 1526792871353053630}
-  Coins: 0
+  Coins: 99999
 --- !u!114 &1526792871353053630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,8 +271,7 @@ MonoBehaviour:
   hasSlider: 0
   throwSlider: {fileID: 0}
   throwSound: {fileID: 0}
-  totalThrows: 1000
-  throwCooldown: 0.1
+  throwCooldown: 0.65
   throwKey: 323
   throwForce: 70
   throwUpwardForce: 0
@@ -294,8 +293,7 @@ MonoBehaviour:
   hasSlider: 1
   throwSlider: {fileID: 0}
   throwSound: {fileID: 0}
-  totalThrows: 100
-  throwCooldown: 1
+  throwCooldown: 15
   throwKey: 324
   throwForce: 25
   throwUpwardForce: 0
