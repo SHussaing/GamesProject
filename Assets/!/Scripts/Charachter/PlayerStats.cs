@@ -32,8 +32,13 @@ public class PlayerStats : CharacterStats
     public void AddCoins(int amount)
     {
         Coins += amount;
-        CoinsText.text = Coins.ToString();
+        UpdateCoinsHUD();
        // hud.UpdateCoinsText(Coins);
+    }
+
+    public void UpdateCoinsHUD()
+    {
+        CoinsText.text = Coins.ToString();
     }
 
 

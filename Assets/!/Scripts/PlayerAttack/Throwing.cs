@@ -18,7 +18,6 @@ public class Throwing : MonoBehaviour
     public AudioSource throwSound;
 
     [Header("Settings")]
-    public int totalThrows;
     public float throwCooldown;
     private float throwCooldownTimer;
 
@@ -37,7 +36,7 @@ public class Throwing : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(throwKey) && readyToThrow && totalThrows > 0)
+        if (Input.GetKeyDown(throwKey) && readyToThrow)
         {
             Throw();
         }
@@ -87,7 +86,6 @@ public class Throwing : MonoBehaviour
 
         projectileRb.AddForce(forceToAdd, ForceMode.Impulse);
 
-        totalThrows--;
 
         // implement throwCooldown
         Invoke(nameof(ResetThrow), throwCooldown);

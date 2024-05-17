@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5082203939446302612}
   - component: {fileID: 4596712411170664787}
   m_Layer: 8
-  m_Name: Grenade
+  m_Name: GrenadeProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,13 +148,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionSound: {fileID: 0}
-  damage: 50
+  damage: 320
   destroyOnHit: 1
   timeToDestroy: 100
   hitEffect: {fileID: 0}
   muzzleEffect: {fileID: 0}
   isExplosive: 1
-  explosionRadius: 10
+  explosionRadius: 4
   explosionForce: 10
   explosionDamage: 100
   explosionEffect: {fileID: 100002, guid: 6ecf76dc4f268d340b2666896a954bcc, type: 3}
