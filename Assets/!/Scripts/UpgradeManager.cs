@@ -27,6 +27,7 @@ public class UpgradeManager : MonoBehaviour
     private void Start()
     {
         GetReferences();
+        SavePlayer.loadStats(playerStats, playerMovement, playerDash, Attacks[0], Attacks[1]);
     }
 
     private void GetReferences()
@@ -116,6 +117,7 @@ public class UpgradeManager : MonoBehaviour
             playerStats.maxHealth += 10;
             playerStats.health += 10;
             playerStats.CheckHealth();
+            SavePlayer.saveStats(playerStats, playerMovement, playerDash, Attacks[0], Attacks[1]);
         }
     }
 
@@ -127,6 +129,7 @@ public class UpgradeManager : MonoBehaviour
             //increase the player speed by 5%
             playerMovement.walkSpeed = playerMovement.walkSpeed + (5 *  0.05f);
             playerMovement.sprintSpeed = playerMovement.sprintSpeed + (8 * 0.05f);
+            SavePlayer.saveStats(playerStats, playerMovement, playerDash, Attacks[0], Attacks[1]);
         }
     }
 
@@ -136,6 +139,7 @@ public class UpgradeManager : MonoBehaviour
         if (checkCoins(DashPrice))
         {
             playerDash.dashCd -= 1;
+            SavePlayer.saveStats(playerStats, playerMovement, playerDash, Attacks[0], Attacks[1]);
         }
     }
 
@@ -154,6 +158,7 @@ public class UpgradeManager : MonoBehaviour
         if (checkCoins(KnifeSpeedPrice))
         {
             Attacks[0].throwCooldown -= 0.05f;
+            SavePlayer.saveStats(playerStats, playerMovement, playerDash, Attacks[0], Attacks[1]);
         }
     }
     
@@ -164,6 +169,7 @@ public class UpgradeManager : MonoBehaviour
         if (checkCoins(jumpPrice))
         {
             playerMovement.jumpForce += 1.25f;
+            SavePlayer.saveStats(playerStats, playerMovement, playerDash, Attacks[0], Attacks[1]);
         }
     }
 
@@ -173,6 +179,7 @@ public class UpgradeManager : MonoBehaviour
         if (checkCoins(grenadeCDPrice))
         {
             Attacks[1].throwCooldown -= 1f;
+            SavePlayer.saveStats(playerStats, playerMovement, playerDash, Attacks[0], Attacks[1]);
         }
     }
 

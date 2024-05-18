@@ -15,11 +15,17 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetReferences();
+    }
+
+    private void GetReferences() 
+    {
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         PlayerCam = GameObject.Find("Player").GetComponent<PlayerCam>();
         PNLDeath.SetActive(false);
     }
+
 
     // Update is called once per frame
     void Update()
@@ -71,8 +77,4 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);  
     }
 
-    public void UpgradeMenu()
-    {
-        SceneManager.LoadScene("UpgradeMenu");
-    }
 }

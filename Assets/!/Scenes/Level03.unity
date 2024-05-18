@@ -2036,6 +2036,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e433c0225c905f24280c7a6016ec43f4, type: 3}
+--- !u!114 &146544001 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8096719428203529951, guid: e433c0225c905f24280c7a6016ec43f4, type: 3}
+  m_PrefabInstance: {fileID: 146544000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba111090132efe84da0ea6adda3b4649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &158148066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8517,6 +8528,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de31e1f8df1dbc4468e1470d3924de88, type: 3}
+--- !u!1 &483301965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5030735951403074411, guid: de31e1f8df1dbc4468e1470d3924de88, type: 3}
+  m_PrefabInstance: {fileID: 483301964}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &484001246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18164,9 +18180,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1769545704043257032, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 483301965}
+    - target: {fileID: 1769545704043257032, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
       propertyPath: PNLDeath
       value: 
       objectReference: {fileID: 1041009307}
+    - target: {fileID: 4503905874919506709, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 483301965}
     - target: {fileID: 6109201715918258031, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -27287,6 +27311,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 147712395837509487, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 146544001}
+    - target: {fileID: 147712395837509487, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgradeKnifeSpeed
+      objectReference: {fileID: 0}
     - target: {fileID: 198133811630937666, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -27367,9 +27399,73 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1816294977520671508, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 146544001}
+    - target: {fileID: 1816294977520671508, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgradeGrenadeRadius
+      objectReference: {fileID: 0}
+    - target: {fileID: 3259989655917149687, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 146544001}
+    - target: {fileID: 3259989655917149687, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UgradePlayerDash
+      objectReference: {fileID: 0}
+    - target: {fileID: 4549743316868396375, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 146544001}
+    - target: {fileID: 4549743316868396375, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgradeGrenadeDamage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565456532952754060, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 146544001}
+    - target: {fileID: 4565456532952754060, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgradeGrenadeCD
+      objectReference: {fileID: 0}
+    - target: {fileID: 5301344347582933289, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 146544001}
+    - target: {fileID: 5301344347582933289, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgradePlayerHealth
+      objectReference: {fileID: 0}
     - target: {fileID: 5560274285426227449, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
       propertyPath: m_Name
       value: CanvasUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612558709725221342, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 146544001}
+    - target: {fileID: 5612558709725221342, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgradeKnifeDamage
+      objectReference: {fileID: 0}
+    - target: {fileID: 8644112484789610853, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 146544001}
+    - target: {fileID: 8644112484789610853, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgradePlayerSpeed
+      objectReference: {fileID: 0}
+    - target: {fileID: 8814036229499258773, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 146544001}
+    - target: {fileID: 8814036229499258773, guid: 3ebb3c58c6c3e9d44bd56173bc64649d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgradeJump
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

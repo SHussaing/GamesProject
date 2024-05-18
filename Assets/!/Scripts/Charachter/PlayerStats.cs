@@ -14,8 +14,11 @@ public class PlayerStats : CharacterStats
     private void Start()
     {
         CoinsText = GameObject.Find("Coins").GetComponent<Text>();
-        CheckHealth();
+        // invoke the check health method
+        Invoke("CheckHealth", 0.1f);
+        Invoke("UpdateCoinsHUD", 0.1f);
     }
+
 
     public override void CheckHealth()
     {
