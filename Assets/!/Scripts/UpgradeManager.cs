@@ -28,6 +28,17 @@ public class UpgradeManager : MonoBehaviour
     {
         GetReferences();
         SavePlayer.loadStats(playerStats, playerMovement, playerDash, Attacks[0], Attacks[1]);
+        // if scene is Level01 set default values for prefabs
+        if (SceneManager.GetActiveScene().name == "Level01")
+        {
+            //knife damage
+            Attacks[0].objectToThrow.gameObject.GetComponent<Projectile>().damage = 50;
+            //explosion radius and visual effect
+            Attacks[1].objectToThrow.gameObject.GetComponent<Projectile>().explosionRadius = 4;
+            Attacks[1].objectToThrow.gameObject.GetComponent<Projectile>().explosionEffect.GetComponent<ParticleSystem>().startSize = 24;
+            //explosion damage
+            Attacks[1].objectToThrow.gameObject.GetComponent<Projectile>().explosionDamage = 120;
+        }
     }
 
     private void GetReferences()
@@ -106,6 +117,11 @@ public class UpgradeManager : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public static void SavePlayerStats()
+    {
+
     }
 
 
@@ -188,9 +204,7 @@ public class UpgradeManager : MonoBehaviour
     {
         if (checkCoins(grenadeRadiusPrice))
         {
-            //default value = 4
             Attacks[1].objectToThrow.gameObject.GetComponent<Projectile>().explosionRadius += 1f;
-            //default value = 24
             Attacks[1].objectToThrow.gameObject.GetComponent<Projectile>().explosionEffect.GetComponent<ParticleSystem>().startSize += 2f;
         }
     }
