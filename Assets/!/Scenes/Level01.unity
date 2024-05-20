@@ -5297,6 +5297,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5383046406768863671, guid: de31e1f8df1dbc4468e1470d3924de88, type: 3}
+      propertyPath: Coins
+      value: 99999
+      objectReference: {fileID: 0}
     - target: {fileID: 6286255317627735880, guid: de31e1f8df1dbc4468e1470d3924de88, type: 3}
       propertyPath: cam
       value: 
@@ -23126,6 +23130,10 @@ PrefabInstance:
     - target: {fileID: 6902720942087832690, guid: 46f6987cb32e6384daebd37c4e590faf, type: 3}
       propertyPath: m_Name
       value: CanvasGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902720942087832690, guid: 46f6987cb32e6384daebd37c4e590faf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7264303309108697899, guid: 46f6987cb32e6384daebd37c4e590faf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

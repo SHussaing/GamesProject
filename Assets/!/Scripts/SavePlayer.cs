@@ -26,6 +26,11 @@ public class SavePlayer : MonoBehaviour
         grenadeCD = grenade.throwCooldown;
     }
 
+    public static void saveCoins (int coins)
+    {
+        SavePlayer.coins = coins;
+    }
+
     // load the stats of the player
     public static void loadStats(PlayerStats playerStats, PlayerMovement playerMovement, PlayerDash playerDash, Throwing knife, Throwing grenade)
     {

@@ -36,6 +36,7 @@ public class PlayerStats : CharacterStats
     {
         Coins += amount;
         UpdateCoinsHUD();
+        SavePlayer.saveCoins(Coins);
        // hud.UpdateCoinsText(Coins);
     }
 

@@ -239,7 +239,7 @@ MonoBehaviour:
   isDead: 0
   animator: {fileID: 9203343056835357245}
   hud: {fileID: 1526792871353053630}
-  Coins: 99999
+  Coins: 0
 --- !u!114 &1526792871353053630
 MonoBehaviour:
   m_ObjectHideFlags: 0

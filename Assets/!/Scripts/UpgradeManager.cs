@@ -17,7 +17,9 @@ public class UpgradeManager : MonoBehaviour
     private Transform PlayerTransform;
     [SerializeField] GameObject MenuCoins;
     private AudioSource purchaseSound;
+    private AudioSource errorSound;
     private Text ShopCoins;
+    private Text ErrorText;
     private PlayerStats playerStats;
     private Throwing[] Attacks;
     private PlayerMovement playerMovement;
@@ -44,6 +46,7 @@ public class UpgradeManager : MonoBehaviour
     private void GetReferences()
     {
         purchaseSound = GameObject.Find("PurchaseSound").GetComponent<AudioSource>();
+        errorSound = GameObject.Find("ErrorSound").GetComponent<AudioSource>();
         ShopCoins = MenuCoins.GetComponent<Text>();
         ShopKeeper = GameObject.Find("ShopKeeper");
         PlayerTransform = GameObject.Find("Player").transform;
@@ -78,6 +81,8 @@ public class UpgradeManager : MonoBehaviour
         CanvasGame.SetActive(false);
         //enable upgrade canvas
         CanvasUpgrade.SetActive(true);
+        ErrorText = GameObject.Find("ErrorText").GetComponent<Text>();
+        ErrorText.enabled = false;
         //disable player Attack
         Attacks[0].enabled = false;
         Attacks[1].enabled = false;
@@ -104,9 +109,9 @@ public class UpgradeManager : MonoBehaviour
         ShopCoins.text = playerStats.Coins.ToString();
     }
 
-    private bool checkCoins(int price)
+    private bool checkCoins(int price, bool upgradeLimit)
     {
-        if (playerStats.Coins >= price)
+        if (playerStats.Coins >= price && upgradeLimit)
         {
             playerStats.Coins -= price;
             purchaseSound.Play();
@@ -115,8 +120,21 @@ public class UpgradeManager : MonoBehaviour
         }
         else
         {
+            ErrorTextDisplay();
             return false;
         }
+    }
+
+    private void ErrorTextDisplay()
+    {
+        //enable error text for 2 seconds then diable it
+        ErrorText.enabled= true;
+        Invoke("DisableErrorText", 2f);
+        errorSound.Play();
+    }
+    private void DisableErrorText()
+    {
+        ErrorText.enabled = false;
     }
 
     public static void SavePlayerStats()
@@ -128,7 +146,7 @@ public class UpgradeManager : MonoBehaviour
     private int healthPrice = 175;
     public void UpgradePlayerHealth()
     {
-        if (checkCoins(healthPrice))
+        if (checkCoins(healthPrice, playerStats.maxHealth != 500))
         {
             playerStats.maxHealth += 10;
             playerStats.health += 10;
@@ -140,7 +158,7 @@ public class UpgradeManager : MonoBehaviour
     private int speedPrice = 200;
     public void UpgradePlayerSpeed()
     {
-        if (checkCoins(speedPrice))
+        if (checkCoins(speedPrice, playerMovement.walkSpeed < 10f))
         {
             //increase the player speed by 5%
             playerMovement.walkSpeed = playerMovement.walkSpeed + (5 *  0.05f);
@@ -152,7 +170,7 @@ public class UpgradeManager : MonoBehaviour
     private int DashPrice = 275;
     public void UgradePlayerDash()
     {
-        if (checkCoins(DashPrice))
+        if (checkCoins(DashPrice, playerDash.dashCd != 3))
         {
             playerDash.dashCd -= 1;
             SavePlayer.saveStats(playerStats, playerMovement, playerDash, Attacks[0], Attacks[1]);
@@ -162,16 +180,16 @@ public class UpgradeManager : MonoBehaviour
     private int KnifeDamagePrice = 170;
     public void UpgradeKnifeDamage()
     {
-        if (checkCoins(KnifeDamagePrice))
+        if (checkCoins(KnifeDamagePrice, Attacks[0].objectToThrow.gameObject.GetComponent<Projectile>().damage < 220))
         {
-            Attacks[0].objectToThrow.gameObject.GetComponent<Projectile>().damage += 5;
+            Attacks[0].objectToThrow.gameObject.GetComponent<Projectile>().damage += 10;
         }
     }
 
-    private int KnifeSpeedPrice = 150;
+    private int KnifeSpeedPrice = 200;
     public void UpgradeKnifeSpeed()
     {
-        if (checkCoins(KnifeSpeedPrice))
+        if (checkCoins(KnifeSpeedPrice, Attacks[0].throwCooldown > 0.04f))
         {
             Attacks[0].throwCooldown -= 0.05f;
             SavePlayer.saveStats(playerStats, playerMovement, playerDash, Attacks[0], Attacks[1]);
@@ -182,7 +200,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void UpgradeJump()
     {
-        if (checkCoins(jumpPrice))
+        if (checkCoins(jumpPrice, playerMovement.jumpForce < 20))
         {
             playerMovement.jumpForce += 1.25f;
             SavePlayer.saveStats(playerStats, playerMovement, playerDash, Attacks[0], Attacks[1]);
@@ -192,7 +210,7 @@ public class UpgradeManager : MonoBehaviour
     private int grenadeCDPrice = 450;
     public void UpgradeGrenadeCD()
     {
-        if (checkCoins(grenadeCDPrice))
+        if (checkCoins(grenadeCDPrice, Attacks[1].throwCooldown != 4))
         {
             Attacks[1].throwCooldown -= 1f;
             SavePlayer.saveStats(playerStats, playerMovement, playerDash, Attacks[0], Attacks[1]);
@@ -202,17 +220,17 @@ public class UpgradeManager : MonoBehaviour
     private int grenadeRadiusPrice = 650;
     public void UpgradeGrenadeRadius()
     {
-        if (checkCoins(grenadeRadiusPrice))
+        if (checkCoins(grenadeRadiusPrice, Attacks[1].objectToThrow.gameObject.GetComponent<Projectile>().explosionRadius <= 10))
         {
             Attacks[1].objectToThrow.gameObject.GetComponent<Projectile>().explosionRadius += 1f;
-            Attacks[1].objectToThrow.gameObject.GetComponent<Projectile>().explosionEffect.GetComponent<ParticleSystem>().startSize += 2f;
+            Attacks[1].objectToThrow.gameObject.GetComponent<Projectile>().explosionEffect.GetComponent<ParticleSystem>().startSize += 4f;
         }
     }
 
     private int grenadeDamagePrice = 500;
     public void UpgradeGrenadeDamage()
     {
-        if (checkCoins(grenadeDamagePrice))
+        if (checkCoins(grenadeDamagePrice, Attacks[1].objectToThrow.gameObject.GetComponent<Projectile>().explosionDamage <= 500))
         {
             Attacks[1].objectToThrow.gameObject.GetComponent<Projectile>().explosionDamage += 30;
         }
