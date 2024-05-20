@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         GetReferences();
+        // Make the cursor invisible
+        Cursor.visible = false;
+
+        // Lock the cursor to the center of the screen
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void GetReferences() 
@@ -64,7 +69,8 @@ public class GameManager : MonoBehaviour
     }
     private void NextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        int nextSceneIndex = (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
     public void RestartGame()

@@ -30,9 +30,26 @@ public class UpgradeManager : MonoBehaviour
     {
         GetReferences();
         SavePlayer.loadStats(playerStats, playerMovement, playerDash, Attacks[0], Attacks[1]);
+        setDefaultValues();
+
+    }
+    private void setDefaultValues()
+    {
         // if scene is Level01 set default values for prefabs
         if (SceneManager.GetActiveScene().name == "Level01")
         {
+            playerStats.maxHealth = 100;
+            playerStats.health = 100;
+            playerStats.Coins = 0;
+            playerMovement.walkSpeed = 5;
+            playerMovement.sprintSpeed = 8;
+            playerMovement.jumpForce = 12;
+            playerDash.dashCd = 12;
+            //knife speed
+            Attacks[0].throwCooldown = 0.65f;
+            //grenade speed
+            Attacks[1].throwCooldown = 15;
+
             //knife damage
             Attacks[0].objectToThrow.gameObject.GetComponent<Projectile>().damage = 50;
             //explosion radius and visual effect

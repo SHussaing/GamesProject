@@ -19,6 +19,10 @@ public class MainMenu : MonoBehaviour
         credits = GameObject.Find("CanvasCredits").GetComponent<Canvas>();
         instructions = GameObject.Find("CanvasInstructions").GetComponent<Canvas>();
         mainMenu.enabled = true;
+        // Make the cursor visible
+        Cursor.visible = true;
+        // Ensure the cursor is not locked
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void startGame ()
