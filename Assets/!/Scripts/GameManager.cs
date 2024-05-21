@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         managePlayer();
-        CheckZombies();
+        /*CheckZombies();*/
     }
 
     // Manage player
@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
             Invoke("NextLevel", 10);
         }
     }
+
     private void NextLevel()
     {
         int nextSceneIndex = (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
