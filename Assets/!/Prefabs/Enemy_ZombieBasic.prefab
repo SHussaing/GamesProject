@@ -142,9 +142,9 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   isDead: 0
-  damage: 15
-  attackspeed: 1.5
-  CoinToDrop: 20
+  damage: 10
+  attackspeed: 1
+  CoinToDrop: 25
   player: {fileID: 0}
 --- !u!1001 &2140585971659395157
 PrefabInstance:

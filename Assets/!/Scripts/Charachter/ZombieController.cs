@@ -181,7 +181,7 @@ public class ZombieController : MonoBehaviour
 
     private void CheckStuck()
     {
-        if (Vector3.Distance(transform.position, lastPosition) <= 0.5f)
+        if (Vector3.Distance(transform.position, lastPosition) <= 2f)
         {
             timeSinceLastMove += Time.deltaTime;
         }
