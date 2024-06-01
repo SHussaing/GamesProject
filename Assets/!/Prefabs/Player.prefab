@@ -183,12 +183,12 @@ MonoBehaviour:
   playerCam: {fileID: 0}
   coolDownSlider: {fileID: 0}
   dashForce: 20
-  dashUpwardForce: 2
+  dashUpwardForce: 1
   maxDashYSpeed: 15
   dashDuration: 0.25
   cam: {fileID: 4551895665509439401}
   dashFov: 90
-  useCameraForward: 1
+  useCameraForward: 0
   allowAllDirections: 1
   disableGravity: 1
   resetVel: 1

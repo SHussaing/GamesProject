@@ -76150,12 +76150,36 @@ PrefabInstance:
       objectReference: {fileID: 483301966}
     - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
       propertyPath: totalSpawnCount
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
       propertyPath: timeBetweenSpawns
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
+      propertyPath: zombiePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 8306713697917541801, guid: 4e25d8b0c334c764892ccd7343dbe4cf, type: 3}
+    - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
+      propertyPath: zombiePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 6847961690396056974, guid: 9b8a13b43b826454e95b23dbdb84c433, type: 3}
+    - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
+      propertyPath: zombiePrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 5956187662716981912, guid: 3b6fc39c0cde37545a7fe5bffadca877, type: 3}
+    - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
+      propertyPath: zombiePrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 2719262112755000451, guid: 35048963851b74c4b826e6ce133b2b32, type: 3}
+    - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
+      propertyPath: zombiePrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 7097642316001069262, guid: 95cee67f584e236408a4ceac9451ea72, type: 3}
+    - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
+      propertyPath: zombiePrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 3983883305024492657, guid: b44e6f964da4d5b4eb159ae566d93366, type: 3}
     - target: {fileID: 1769545704043257032, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
       propertyPath: player
       value: 
