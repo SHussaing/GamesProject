@@ -105,6 +105,7 @@ public class UpgradeManager : MonoBehaviour
         Attacks[1].enabled = false;
         //enable cursor
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void DisableUpgradeMenu() 

@@ -97,7 +97,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 16
+  m_Speed: 12
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -139,10 +139,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c1e4cec87597f44bc9ec0c966b3015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 80
+  health: 50
   maxHealth: 50
   isDead: 0
-  damage: 16
+  damage: 8
   attackspeed: 1.5
   CoinToDrop: 50
   player: {fileID: 0}

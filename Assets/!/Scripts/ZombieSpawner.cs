@@ -17,16 +17,15 @@ public class ZombieSpawner : MonoBehaviour
     private int spawnCount; // Number of zombies currently in the scene
 
     //zombie prefabs
-    [Header("Zombie Prefabs")]
+/*    [Header("Zombie Prefabs")]
 
     [SerializeField] GameObject ZombieBasic;
     [SerializeField] GameObject ZombieArm;
     [SerializeField] GameObject ZombieRibcage;
-    [SerializeField] GameObject ZombieChubby;
+    [SerializeField] GameObject ZombieChubby;*/
 
     void Start()
     {
-        setDefaultValues();
         StartCoroutine(SpawnZombies());
     }
 
@@ -40,6 +39,7 @@ public class ZombieSpawner : MonoBehaviour
         spawnCount = totalSpawnCount;
         for (int i = 0; i < totalSpawnCount; i++)
         {
+            yield return new WaitForSeconds(timeBetweenSpawns); // Optional delay between spawns
             Vector3 spawnPosition = GetValidSpawnPosition();
             if (spawnPosition != Vector3.zero)
             {
@@ -47,7 +47,7 @@ public class ZombieSpawner : MonoBehaviour
                 Instantiate(randomZombiePrefab, spawnPosition, Quaternion.identity);
                 spawnCount--;
             }
-            yield return new WaitForSeconds(timeBetweenSpawns); // Optional delay between spawns
+
         }
     }
 
@@ -95,10 +95,10 @@ public class ZombieSpawner : MonoBehaviour
     }
 
 
-    private void setDefaultValues()
+/*    private void setDefaultValues()
     {
-        int level = GetCurrentLevel();
-        float multiplier = 1 + 0.2f * (level - 1); // Assuming a 20% increase per level
+        int level = SceneManager.GetActiveScene().buildIndex + 1;
+        float multiplier = 1 + 0.35f * (level - 1); // Assuming a 35% increase per level
 
         // Basic Zombie
         ZombieBasic.GetComponent<NavMeshAgent>().speed = 5f * multiplier;
@@ -119,16 +119,5 @@ public class ZombieSpawner : MonoBehaviour
         ZombieChubby.GetComponent<NavMeshAgent>().speed = 7f * multiplier;
         ZombieChubby.GetComponent<ZombieStats>().health = (int)(200 * multiplier);
         ZombieChubby.GetComponent<ZombieStats>().damage = (int)(20 * multiplier);
-    }
-
-    private int GetCurrentLevel()
-    {
-        string sceneName = SceneManager.GetActiveScene().name;
-        if (sceneName == "Level01") return 1;
-        if (sceneName == "Level02") return 2;
-        if (sceneName == "Level03") return 3;
-        if (sceneName == "Level04") return 4;
-        // Add more levels if necessary
-        return 1; // Default to Level 1 if the scene name doesn't match
-    }
+    }*/
 }

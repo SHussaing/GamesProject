@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
     private PlayerStats playerStats;
     private PlayerMovement playerMovement;
     private PlayerCam PlayerCam;
+    private Throwing[] Attacks;
     [SerializeField] GameObject PNLDeath;
+    
 
     public Vector3 spawn;
 
@@ -16,11 +18,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         GetReferences();
-        // Make the cursor invisible
-        Cursor.visible = false;
-
         // Lock the cursor to the center of the screen
         Cursor.lockState = CursorLockMode.Locked;
+        // Make the cursor invisible
+        Cursor.visible = false;
+        //start time
+        Time.timeScale = 1;
     }
 
     private void GetReferences() 
@@ -28,6 +31,7 @@ public class GameManager : MonoBehaviour
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         PlayerCam = GameObject.Find("Player").GetComponent<PlayerCam>();
+        Attacks = GameObject.Find("Player").GetComponents<Throwing>();
         PNLDeath.SetActive(false);
     }
 
@@ -46,9 +50,24 @@ public class GameManager : MonoBehaviour
         if (playerStats.health <= 0)
         {
             PNLDeath.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
             playerMovement.enabled = false;
             PlayerCam.enabled = false;
+            //disable player Attack
+            Attacks[0].enabled = false;
+            Attacks[1].enabled = false;
+            //enable cursor
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            //stop time
+            Time.timeScale = 0;
+            //restart or go to main menu
+            if(Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                RestartGame();
+            } else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                MainMenu();
+            }
         }
         //if player fell down
         if (playerMovement.rb.position.y <= -100)
