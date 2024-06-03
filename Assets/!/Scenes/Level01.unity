@@ -22556,22 +22556,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 725109446}
-    - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
-      propertyPath: totalSpawnCount
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
-      propertyPath: timeBetweenSpawns
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
-      propertyPath: zombiePrefabs.Array.size
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 1769545704043257032, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
       propertyPath: PNLDeath
       value: 
