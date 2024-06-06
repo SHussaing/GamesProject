@@ -109,7 +109,7 @@ NavMeshSettings:
     agentRadius: 0.32
     agentHeight: 2.9
     agentSlope: 45
-    agentClimb: 3
+    agentClimb: 2.9
     ledgeDropHeight: 20
     maxJumpAcrossDistance: 10
     minRegionArea: 2.62
@@ -22202,6 +22202,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5266302392480194150, guid: 46f6987cb32e6384daebd37c4e590faf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6074106005423227888, guid: 46f6987cb32e6384daebd37c4e590faf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -22527,11 +22531,11 @@ PrefabInstance:
       objectReference: {fileID: 725109446}
     - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
       propertyPath: totalSpawnCount
-      value: 15
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
       propertyPath: timeBetweenSpawns
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1769545704043257032, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
       propertyPath: PNLDeath

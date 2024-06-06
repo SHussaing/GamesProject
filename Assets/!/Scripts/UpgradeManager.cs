@@ -176,11 +176,11 @@ public class UpgradeManager : MonoBehaviour
     private int speedPrice = 200;
     public void UpgradePlayerSpeed()
     {
-        if (checkCoins(speedPrice, playerMovement.walkSpeed < 10f))
+        if (checkCoins(speedPrice, playerMovement.walkSpeed < 7f))
         {
-            //increase the player speed by 5%
-            playerMovement.walkSpeed = playerMovement.walkSpeed + (5 *  0.05f);
-            playerMovement.sprintSpeed = playerMovement.sprintSpeed + (8 * 0.05f);
+            //increase the player speed by 4%
+            playerMovement.walkSpeed = playerMovement.walkSpeed + (5 *  0.04f);
+            playerMovement.sprintSpeed = playerMovement.sprintSpeed + (8 * 0.04f);
             SavePlayer.saveStats(playerStats, playerMovement, playerDash, Attacks[0], Attacks[1]);
         }
     }
@@ -191,6 +191,7 @@ public class UpgradeManager : MonoBehaviour
         if (checkCoins(DashPrice, playerDash.dashCd != 3))
         {
             playerDash.dashCd -= 1;
+            playerDash.dashForce += 0.5f;
             SavePlayer.saveStats(playerStats, playerMovement, playerDash, Attacks[0], Attacks[1]);
         }
     }

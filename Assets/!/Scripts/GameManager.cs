@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +11,9 @@ public class GameManager : MonoBehaviour
     private PlayerCam PlayerCam;
     private Throwing[] Attacks;
     [SerializeField] GameObject PNLDeath;
-    
+    private UpgradeManager upgradeManager;
+    bool isDead = false;
+
 
     public Vector3 spawn;
 
@@ -32,6 +35,7 @@ public class GameManager : MonoBehaviour
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         PlayerCam = GameObject.Find("Player").GetComponent<PlayerCam>();
         Attacks = GameObject.Find("Player").GetComponents<Throwing>();
+        upgradeManager = GameObject.Find("GameUpgrades").GetComponent<UpgradeManager>();
         PNLDeath.SetActive(false);
     }
 
@@ -47,9 +51,13 @@ public class GameManager : MonoBehaviour
     private void managePlayer()
     {
         //if player is dead
-        if (playerStats.health <= 0)
+        if (playerStats.health <= 0 && !isDead)
         {
+            //set isDead to true
+            isDead = true;
             PNLDeath.SetActive(true);
+            //disable upgrademanager
+            upgradeManager.DisableUpgradeMenu();
             playerMovement.enabled = false;
             PlayerCam.enabled = false;
             //disable player Attack
@@ -60,11 +68,17 @@ public class GameManager : MonoBehaviour
             Cursor.visible = true;
             //stop time
             Time.timeScale = 0;
+            //set the coins to 0
+            SavePlayer.saveCoins(0);
+        }
+        if(isDead)
+        {
             //restart or go to main menu
-            if(Input.GetKeyDown(KeyCode.Alpha1))
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 RestartGame();
-            } else if (Input.GetKeyDown(KeyCode.Alpha2))
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 MainMenu();
             }
