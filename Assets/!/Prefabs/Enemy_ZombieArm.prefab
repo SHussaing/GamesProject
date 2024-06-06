@@ -117,7 +117,7 @@ MonoBehaviour:
   isDead: 0
   damage: 20
   attackspeed: 1
-  CoinToDrop: 100
+  CoinToDrop: 150
   player: {fileID: 0}
 --- !u!54 &7755666626923181713
 Rigidbody:

@@ -57952,19 +57952,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2217651635975776981, guid: fbbe5b255321a3444a9b4359c290859b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.736
+      value: 210.95
       objectReference: {fileID: 0}
     - target: {fileID: 2217651635975776981, guid: fbbe5b255321a3444a9b4359c290859b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.463835
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2217651635975776981, guid: fbbe5b255321a3444a9b4359c290859b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.638
+      value: 87.17
       objectReference: {fileID: 0}
     - target: {fileID: 2217651635975776981, guid: fbbe5b255321a3444a9b4359c290859b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2217651635975776981, guid: fbbe5b255321a3444a9b4359c290859b, type: 3}
       propertyPath: m_LocalRotation.x
@@ -57972,11 +57972,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2217651635975776981, guid: fbbe5b255321a3444a9b4359c290859b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.38268343
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2217651635975776981, guid: fbbe5b255321a3444a9b4359c290859b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2217651635975776981, guid: fbbe5b255321a3444a9b4359c290859b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -57984,7 +57984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2217651635975776981, guid: fbbe5b255321a3444a9b4359c290859b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 45
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 2217651635975776981, guid: fbbe5b255321a3444a9b4359c290859b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -76150,11 +76150,11 @@ PrefabInstance:
       objectReference: {fileID: 483301966}
     - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
       propertyPath: totalSpawnCount
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
       propertyPath: timeBetweenSpawns
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
       propertyPath: zombiePrefabs.Array.data[0]

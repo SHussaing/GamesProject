@@ -9187,15 +9187,15 @@ PrefabInstance:
       objectReference: {fileID: 1934238367}
     - target: {fileID: 6877843817596298796, guid: de31e1f8df1dbc4468e1470d3924de88, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 6877843817596298796, guid: de31e1f8df1dbc4468e1470d3924de88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6877843817596298796, guid: de31e1f8df1dbc4468e1470d3924de88, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 6877843817596298796, guid: de31e1f8df1dbc4468e1470d3924de88, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20220,11 +20220,11 @@ PrefabInstance:
       objectReference: {fileID: 483301966}
     - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
       propertyPath: totalSpawnCount
-      value: 75
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
       propertyPath: timeBetweenSpawns
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
       propertyPath: zombiePrefabs.Array.size
@@ -20262,6 +20262,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 483301965}
+    - target: {fileID: 1769545704043257032, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
+      propertyPath: spawn.x
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769545704043257032, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
+      propertyPath: spawn.z
+      value: -7
+      objectReference: {fileID: 0}
     - target: {fileID: 1769545704043257032, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
       propertyPath: PNLDeath
       value: 

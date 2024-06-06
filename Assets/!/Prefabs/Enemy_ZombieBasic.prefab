@@ -144,7 +144,7 @@ MonoBehaviour:
   isDead: 0
   damage: 10
   attackspeed: 1
-  CoinToDrop: 25
+  CoinToDrop: 40
   player: {fileID: 0}
 --- !u!1001 &2140585971659395157
 PrefabInstance:

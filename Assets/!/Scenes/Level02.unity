@@ -4423,11 +4423,11 @@ PrefabInstance:
       objectReference: {fileID: 483301966}
     - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
       propertyPath: totalSpawnCount
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
       propertyPath: timeBetweenSpawns
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 46219513136679582, guid: b2f99d28dda5a624ebcd8270f94ba9c3, type: 3}
       propertyPath: zombiePrefabs.Array.size
